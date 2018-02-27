@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="layui/layui/css/layui.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div style="margin-top:5px;margin-left: 15%;" action="">
+    <div>
+        <input type="checkbox" name="title" class="kaoall"><span style="font-size: 20px;">考评管理</span>
+        <div style="margin-left: 3%;">
+            <div class="kaoping">
+                <input type="checkbox" class="kao"><span>未审查询</span>
+            </div>
+            <div class="kaoping">
+                <input type="checkbox" class="kao"><span>考评列表</span>
+            </div>
+            <div class="kaoping">
+                <input type="checkbox" class="kao"><span>考评模板</span>
+            </div>
+            <div class="kaoping">
+                <input type="checkbox" class="kao"><span>已审查询</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <input type="checkbox" name="title" class="classall"><span style="font-size: 20px;">班级管理</span>
+        <div style="margin-left: 3%;">
+            <div class="kaoping">
+                <input type="checkbox" class="class"><span>新增班级</span>
+            </div>
+            <div class="kaoping">
+                <input type="checkbox" class="class"><span>修改班级</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <input type="checkbox" name="title" class="tongjiall"><span style="font-size: 20px;">统计分析</span>
+        <div style="margin-left: 3%;">
+            <div class="kaoping">
+                <input type="checkbox" class="tongji"><span>按月统计</span>
+            </div>
+            <div class="kaoping">
+                <input type="checkbox" class="tongji"><span>按季统计</span>
+            </div>
+            <div class="kaoping">
+                <input type="checkbox" class="tongji"><span>按年统计</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <input type="checkbox" name="title" class="yonghuall"><span style="font-size: 20px;">用户管理</span>
+        <div style="margin-left: 3%;">
+            <div class="kaoping">
+                <input type="checkbox" class="yonghu"><span>用户列表</span>
+            </div>
+            <div class="kaoping">
+                <input type="checkbox" class="yonghu"><span>角色权限</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <input type="checkbox" name="title" class="ziliaoall"><span style="font-size: 20px;">个人中心</span>
+        <div style="margin-left: 3%;">
+            <div class="kaoping">
+                <input type="checkbox" class="ziliao"><span>个人信息</span>
+            </div>
+            <div class="kaoping">
+                <input type="checkbox" class="ziliao"><span>修改密码</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button class="layui-btn layui-bg-blue" lay-submit lay-filter="formDemo">立即提交</button>
+        <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+    </div>
+</div>
+</body>
+<script src="layui/layui/layui.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+    layui.use(['element', 'form'], function() {
+        var element = layui.element,
+            form = layui.form;
+        form.render();
+        //监听提交
+        form.on('submit(formDemo)', function(data) {
+            layer.msg(JSON.stringify(data.field),function(){
+                console.log(data)
+            });
+            return false;
+        });
+    });
+
+    //复选框全选
+    $('.kaoall').change(function(){
+        for(let i=0;i<$('.kao').length;i++){
+            if($('.kaoall').prop('checked')){
+                $('.kao').prop('checked',true)
+            }else{
+                $('.kao').prop('checked',false)
+            }
+        }
+    });
+    for (let i=0;i<$('.kao').length;i++){
+        $('.kao').eq(i).change(function () {
+            if($(this).prop('checked')==false){
+                $('.kaoall').prop('checked',false)
+            }
+        })
+    }
+    $('.classall').change(function(){
+        for(let i=0;i<$('.class').length;i++){
+            if($('.classall').prop('checked')){
+                $('.class').prop('checked',true)
+            }else{
+                $('.class').prop('checked',false)
+            }
+        }
+    });
+    for (let i=0;i<$('.class').length;i++){
+        $('.class').eq(i).change(function () {
+            if($(this).prop('checked')==false){
+                $('.classall').prop('checked',false)
+            }
+        })
+    }
+    $('.tongjiall').change(function(){
+        for(let i=0;i<$('.tongji').length;i++){
+            if($('.tongjiall').prop('checked')){
+                $('.tongji').prop('checked',true)
+            }else{
+                $('.tongji').prop('checked',false)
+            }
+        }
+    });
+    for (let i=0;i<$('.tongji').length;i++){
+        $('.tongji').eq(i).change(function () {
+            if($(this).prop('checked')==false){
+                $('.tongjiall').prop('checked',false)
+            }
+        })
+    }
+    $('.yonghuall').change(function(){
+        for(let i=0;i<$('.yonghu').length;i++){
+            if($('.yonghuall').prop('checked')){
+                $('.yonghu').prop('checked',true)
+            }else{
+                $('.yonghu').prop('checked',false)
+            }
+        }
+    });
+    for (let i=0;i<$('.yonghu').length;i++){
+        $('.yonghu').eq(i).change(function () {
+            if($(this).prop('checked')==false){
+                $('.yonghuall').prop('checked',false)
+            }
+        })
+    }
+    $('.ziliaoall').change(function(){
+        for(let i=0;i<$('.ziliao').length;i++){
+            if($('.ziliaoall').prop('checked')){
+                $('.ziliao').prop('checked',true)
+            }else{
+                $('.ziliao').prop('checked',false)
+            }
+        }
+    });
+    for (let i=0;i<$('.ziliao').length;i++){
+        $('.ziliao').eq(i).change(function () {
+            if($(this).prop('checked')==false){
+                $('.ziliaoall').prop('checked',false)
+            }
+        })
+    }
+
+
+</script>
+
+</html>

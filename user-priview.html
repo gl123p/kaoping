@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="layui/layui/css/layui.css">
+</head>
+<body>
+<form style="margin-top: 20px;" class="layui-form" action="">
+    <div class="layui-form-item">
+        <label class="layui-form-label">姓名</label>
+        <div class="layui-input-block" style="width: 75%;">
+            <input type="text" name="title" lay-verify="required" class="layui-input" value="jack">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">职位</label>
+        <div class="layui-input-block" style="width: 75%;">
+            <input type="text" name="title" lay-verify="required" class="layui-input" value="主管">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">电话</label>
+            <div class="layui-input-block" style="width: 75%;">
+                <input type="text" name="title" lay-verify="required" value="13113113441" class="layui-input">
+            </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">邮箱</label>
+             <div class="layui-input-block" style="width: 75%;">
+                 <input type="text" name="title" lay-verify="required" value="test@qq.com" class="layui-input">
+             </div>
+    </div>
+    <div class="layui-form-item">
+         <label class="layui-form-label">角色</label>
+         <div class="layui-input-block" style="width: 75%;">
+             <input type="text" name="title" lay-verify="required" class="layui-input" value="讲师">
+         </div>
+    </div>
+    <div class="layui-form-item">
+         <label class="layui-form-label">状态</label>
+         <div class="layui-input-block" style="cursor: not-allowed">
+               <input disabled type="radio" name="sex" value="启用" title="启用"  checked>
+               <input disabled type="radio" name="sex" value="禁用" title="禁用">
+         </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+         <label class="layui-form-label">备注</label>
+              <div class="layui-input-block" style="width: 75%;">
+                   <textarea readonly name="desc" style="resize: none;" class="layui-textarea"></textarea>
+              </div>
+    </div>
+</form>
+</body>
+<script src="layui/layui/layui.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+    layui.use(['element', 'form'], function() {
+        var element = layui.element,
+            form = layui.form;
+        form.render();
+        //监听提交
+        form.on('submit(login)', function(data) {
+            layer.msg(JSON.stringify(data.field),function(){
+                console.log(data)
+            });
+            return false;
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,259 @@
+.colf{
+  background: #f4f8fb;
+}
+header{
+  position: relative;
+}
+.login_wrap{
+    width:20%;
+    overflow: hidden;
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    .login_logo{
+      float: left;
+    }
+    .wenzi{
+      text-align: center;
+      float: right;
+      color: #fff;
+      .a{
+        margin: 10px auto;
+        font-size: 2em;
+      }
+    }
+}
+.content{
+  padding: 20px 0;
+  width: 310px;
+  margin: 0 auto;
+  .login{
+    width: 300px;
+    background:deepskyblue;
+    color: #fff;
+  }
+}
+.weimingxi{
+  display: none;
+}
+.yimingxi{
+  display: none;
+}
+.footed{
+  position: absolute;
+  bottom: 20px;
+  color: #888;
+  width: 100%;
+  text-align: center;
+}
+.bgc{
+  background:#fff;
+  padding-bottom:10px;
+}
+.content-pa{
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-right: 15px;
+}
+.mainbody{
+  margin:10px;
+  background:#f4f8fb;
+  margin-bottom: 0;
+  .pa{
+    padding:10px;
+    padding-bottom: 0;
+    blockquote{
+      border-left: 5px deepskyblue solid;
+      background: #fff;
+      height: 14px;
+      .jilu{
+        font-size: 18px;
+      }
+      .searc{
+        float: right;
+        margin-top: -8px;
+        input{
+          width: 200px;
+          float: left;
+          margin-right: 10px;
+        }
+        button{
+          float: left;
+        }
+      }
+    }
+  }
+}
+.mingxi,.chakan{
+  color:deepskyblue;
+}
+.mar{
+  margin-bottom: 10px;
+}
+.mingxi:hover{
+  text-decoration: underline;
+  color: #2E2D3C;
+}
+.layui-nav{
+  .layui-nav-item{
+    .layui-nav-child{
+      .layui-this{
+        background: #000;
+        a{
+          background: #000;
+          text-decoration: underline;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+.layui-nav-child{
+  .moren{
+    color: #fff;
+    background: #000;
+    border: 1px lightskyblue solid;
+    box-sizing: border-box;
+  }
+}
+.layui-nav-child a:hover{
+  text-decoration: underline;
+  background: #000;
+  border:none;
+}
+.content-bo {
+  margin-top: 20px;
+  overflow: hidden;
+  .tool {
+    float: left;
+    .export {
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+  #demo3 {
+    margin-top: -10px;
+    float: right;
+    .layui-laypage-em {
+      background: deepskyblue;
+    }
+  }
+}
+.gaiyao{
+  .gaiyao-sapn{
+    font-size: 16px;
+    line-height: 25px;
+    height: 25px;
+    border-left: 5px deepskyblue solid;
+    span{
+      padding-left: 10px;
+    }
+  }
+}
+.xiangxi{
+  .xiangxi-span{
+    font-size: 16px;
+    line-height: 25px;
+    height: 25px;
+    border-left: 5px deepskyblue solid;
+    span{
+      padding-left: 10px;
+    }
+  }
+}
+.fen-sp{
+  display: inline-block;
+  width: 100px;
+  height: 8px;
+  position: relative;
+  .sp{
+    display: inline-block;
+    width: 100%;
+    background: deepskyblue;
+    height: 8px;
+    position: absolute;
+  }
+}
+.fen-sp{
+  .wuxiao{
+    background: orangered;
+  }
+}
+.shen{
+  height: 30px;
+  line-height: 30px;
+}
+.kaoping-span{
+  line-height: 25px;
+  height: 25px;
+  border-left: 5px deepskyblue solid;
+  span{
+    padding-left: 10px;
+  }
+}
+.select-box{
+  display: inline-block;
+}
+.select-class{
+  width: 50%;
+}
+.class-input{
+  width: 50%;
+}
+.class-area{
+  width: 50%;
+  resize: none;
+}
+.user{
+  .user-sapn{
+    font-size: 18px;
+    line-height: 30px;
+    height: 30px;
+    border-left: 5px deepskyblue solid;
+    .jilu{
+      padding-left: 10px;
+    }
+  }
+}
+.span-a a:hover{
+  text-decoration: underline;
+}
+.anniu{
+  display: none;
+  button{
+    border: 0;
+    width: 60px;
+    display: inline-block;
+    height: 20px;
+    border-radius: 2px;
+  }
+}
+.kaoping,.class,.tongji,.yonghu,.ziliao{
+  margin: 5px;
+  color: grey;
+}
+.jia{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background:deepskyblue ;
+  border-radius: 50%;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 25px;
+}
+.biankuang{
+  margin-left: 10px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 25px;
+  background: #fff;
+  border:1px deepskyblue solid;
+  color: deepskyblue;
+  box-sizing: border-box;
+}

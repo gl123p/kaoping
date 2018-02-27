@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>天智教师考评</title>
+    <link rel="stylesheet" href="layui/layui/css/layui.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body style="background: #fff;">
+    <div class=" layui-bg-blue" style="height: 30px;line-height: 30px;">
+        <span style="padding-left: 10px;">考评模板编辑</span>
+    </div>
+    <div style="margin: 20px 50px;">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">模板名称：</label>
+                <div class="layui-input-inline" style="width: 65%;">
+                    <input type="text" value="新建模板" class="layui-input" style="background:aliceblue;">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">模板编号：</label>
+                <div class="layui-input-inline" style="width:65%;">
+                    <input type="text" value="无" class="layui-input" style="background:aliceblue;">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">备注：</label>
+                <div class="layui-input-inline" style="width: 65%;">
+                    <input type="text" value="无" class="layui-input" style="background:aliceblue;">
+                </div>
+            </div>
+            <div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">考评类目<span class="leimu">1</span>：</label>
+                    <div class="layui-input-inline" style="width: 65%;">
+                        <input type="text" value="类目1" class="layui-input" style="background:aliceblue;">
+                    </div>
+                    <span class="jia newlei" style="border-radius: 50%;">+</span>
+                    <div class="layui-form-item" style="margin-top: 15px;">
+                        <label class="layui-form-label">考评项<span class="xiang">1</span>：</label>
+                        <div class="layui-input-inline" style="width: 65%;">
+                            <input type="text" value="1.问题1" class="layui-input" style="background:aliceblue;">
+                        </div>
+                        <span class="jia newxiang"  style="border-radius: 50%;">+</span>
+                    </div>
+                    <div class="addxiang"></div>
+                </div>
+
+                <div class="addlei"></div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">考评建议<span class="jianyi">1</span>：</label>
+                <div class="layui-input-inline" style="width: 65%;">
+                    <input type="text" value="对老师的建议" class="layui-input" style="background:aliceblue;">
+                </div>
+                <span class="jia newjianyi">+</span>
+            </div>
+            <div class="addjian"></div>
+        </form>
+    </div>
+    <hr>
+    <div style="margin: 20px;text-align: right">
+        <button class="layui-btn layui-bg-blue" lay-submit lay-filter="sub">确认</button>
+        <button class="layui-btn layui-bg-orange">退出</button>
+    </div>
+
+<script src="layui/layui/layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+
+    layui.use('form', function(){
+        var form = layui.form;
+        //监听提交
+        form.on('submit(sub)', function(data) {
+            layer.msg(JSON.stringify(data.field),function(){
+                console.log(data)
+            });
+            return false;
+        });
+    });
+
+    //新增类目
+    var newlei = document.querySelector('.newlei'),
+        newxiang = document.querySelector('.newxiang'),
+        addlei = document.querySelector('.addlei'),
+        addxiang = document.querySelector('.addxiang'),
+        addjian = document.querySelector('.addjian'),
+        newjianyi = document.querySelector('.newjianyi');
+   //function f(){
+        var leimu = 1,
+        xiang = 1,
+        jianyi = 1;
+        function fn1(){
+            leimu++;
+            //新类目
+            var d = document.createElement('div');
+            d.className = 'layui-form-item';
+            addlei.appendChild(d)
+            var la = document.createElement('label');
+            la.className = 'layui-form-label';
+            la.innerText = '考评类目'+leimu+':';
+            d.appendChild(la)
+            var inpd = document.createElement('div');
+            inpd.className = 'layui-input-inline';
+            inpd.style.width = '65%';
+            d.appendChild(inpd)
+            var inp = document.createElement('input');
+            inp.className = 'layui-input';
+            inp.type = 'text';
+            inp.value = '新类目';
+            inp.style.backgroundColor = 'aliceblue';
+            inpd.appendChild(inp)
+            var spa1 = document.createElement('span');
+            spa1.className = 'jia clnewlei';
+            spa1.style.borderRadius = '50%';
+            spa1.innerText = '+';
+            d.appendChild(spa1);
+            var spa2 = document.createElement('button');
+            spa2.type = 'button'
+            spa2.className = 'biankuang jian';
+            spa2.style.borderRadius = '50%';
+            spa2.innerText = '-';
+            d.appendChild(spa2);
+
+            //新考评项
+            var dd = document.createElement('div');
+            dd.className = 'layui-form-item';
+            addlei.appendChild(dd)
+            var lab = document.createElement('label');
+            lab.className = 'layui-form-label';
+            lab.innerText = '考评项'+'1'+':';
+            dd.appendChild(lab)
+            var inpdd = document.createElement('div');
+            inpdd.className = 'layui-input-inline';
+            inpdd.style.width = '65%';
+            dd.appendChild(inpdd)
+            var inpp = document.createElement('input');
+            inpp.className = 'layui-input';
+            inpp.type = 'text';
+            inpp.value = '1.';
+            inpp.style.backgroundColor = 'aliceblue';
+            inpdd.appendChild(inpp)
+            var spa = document.createElement('span');
+            spa.className = 'jia newxiang';
+            spa.style.borderRadius = '50%';
+            spa.innerText = '+';
+            dd.appendChild(spa)
+
+            spa1.onclick = function () {
+                fn1();
+            }
+            spa2.onclick = function () {
+                d.remove()
+                dd.remove()
+            }
+
+            function fn2() {
+                xiang++;
+                //新项目
+                var xd = document.createElement('div');
+                xd.className = 'layui-form-item';
+                addxiang.appendChild(xd)
+                var xla = document.createElement('label');
+                xla.className = 'layui-form-label';
+                xla.innerText = '考评项'+xiang+':';
+                xd.appendChild(xla)
+                var xinpd = document.createElement('div');
+                xinpd.className = 'layui-input-inline';
+                xinpd.style.width = '65%';
+                xd.appendChild(xinpd)
+                var xinp = document.createElement('input');
+                xinp.className = 'layui-input';
+                xinp.type = 'text';
+                xinp.value = '111';
+                xinp.style.backgroundColor = 'aliceblue';
+                xinpd.appendChild(xinp)
+                var xspa1 = document.createElement('span');
+                xspa1.className = 'jia clnewxiang';
+                xspa1.style.borderRadius = '50%';
+                xspa1.innerText = '+';
+                xd.appendChild(xspa1);
+                var xspa2 = document.createElement('span');
+                xspa2.className = 'biankuang xxiang';
+                xspa2.style.borderRadius = '50%';
+                xspa2.innerText = '-';
+                xd.appendChild(xspa2);
+
+                xspa1.onclick = function () {
+                    fn2();
+                }
+                xspa2.onclick = function () {
+                    xd.remove()
+                }
+            }
+            spa.onclick = function () {
+                fn2();
+            }
+        }
+       newlei.onclick = function () {
+           fn1();
+       }
+
+    function fn4() {
+        xiang++;
+        //新项目
+        var xd = document.createElement('div');
+        xd.className = 'layui-form-item';
+        addxiang.appendChild(xd)
+        var xla = document.createElement('label');
+        xla.className = 'layui-form-label';
+        xla.innerText = '考评项'+xiang+':';
+        xd.appendChild(xla)
+        var xinpd = document.createElement('div');
+        xinpd.className = 'layui-input-inline';
+        xinpd.style.width = '65%';
+        xd.appendChild(xinpd)
+        var xinp = document.createElement('input');
+        xinp.className = 'layui-input';
+        xinp.type = 'text';
+        xinp.value = '111';
+        xinp.style.backgroundColor = 'aliceblue';
+        xinpd.appendChild(xinp)
+        var xspa1 = document.createElement('span');
+        xspa1.className = 'jia clnewxiang';
+        xspa1.style.borderRadius = '50%';
+        xspa1.innerText = '+';
+        xd.appendChild(xspa1);
+        var xspa2 = document.createElement('span');
+        xspa2.className = 'biankuang xxiang';
+        xspa2.style.borderRadius = '50%';
+        xspa2.innerText = '-';
+        xd.appendChild(xspa2);
+
+        xspa1.onclick = function () {
+            fn4();
+        }
+
+        xspa2.onclick = function () {
+            xd.remove()
+        }
+    }
+    newxiang.onclick = function(){
+        fn4();
+    }
+
+       function fn3() {
+            jianyi++;
+            //新建议
+            var d = document.createElement('div');
+            d.className = 'layui-form-item';
+            addjian.appendChild(d)
+            var la = document.createElement('label');
+            la.className = 'layui-form-label';
+            la.innerText = '考评建议'+jianyi+':';
+            d.appendChild(la)
+            var inpd = document.createElement('div');
+            inpd.className = 'layui-input-inline';
+            inpd.style.width = '65%';
+            d.appendChild(inpd)
+            var inp = document.createElement('input');
+            inp.className = 'layui-input';
+            inp.type = 'text';
+            inp.value = '新建议';
+            inp.style.backgroundColor = 'aliceblue';
+            inpd.appendChild(inp)
+            var spa1 = document.createElement('span');
+            spa1.className = 'jia clnewjianyi';
+            spa1.style.borderRadius = '50%';
+            spa1.innerText = '+';
+            d.appendChild(spa1);
+            var spa2 = document.createElement('span');
+            spa2.className = 'biankuang xjian';
+            //spa2.type = 'button'
+            spa2.style.borderRadius = '50%';
+            spa2.innerText = '-';
+            d.appendChild(spa2);
+
+           spa1.onclick = function () {
+                fn3();
+            }
+           spa2.onclick = function () {
+               d.remove()
+           }
+        }
+       newjianyi.onclick = function(){
+           fn3();
+       }
+   //}
+    //f();
+
+</script>
+</body>
+</html>

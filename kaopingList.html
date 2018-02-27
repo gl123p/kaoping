@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>天智教师考评</title>
+    <link rel="stylesheet" href="layui/layui/css/layui.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="layui-layout-body colf">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header layui-bg-blue">
+        <div class="layui-logo"><img src="img/icons/logo_nav.png" alt=""></div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item">苏州天智软件学院中国IT培训专家</li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="img/chrome.png" class="layui-nav-img">
+                    Admin
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="personal.html">基本资料</a></dd>
+                    <dd><a href="pwdMod.html">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="login.html">退了</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">考评管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="main_weishen.html">未审核查询</a></dd>
+                        <dd><a href="main_yishen.html">已审查询</a></dd>
+                        <dd><a class="moren" style="color: #fff;" href="kaopingList.html">考评列表</a></dd>
+                        <dd><a href="kaoping-module.html">考评模板</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">班级管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="classNew.html">新增班级</a></dd>
+                        <dd><a href="classMod.html">修改班级</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">统计分析</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="month.html">按月统计</a></dd>
+                        <dd><a href="quarter.html">按季统计</a></dd>
+                        <dd><a href="year.html">按年统计</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">用户管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="userList.html">用户列表</a></dd>
+                        <dd><a href="userRole.html">角色权限</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">个人中心</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="personal.html">个人信息</a></dd>
+                        <dd><a href="pwdMod.html">修改密码</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!--main-body-->
+    <div  class="layui-body mainbody">
+        <div class="contain pa">
+            <!--考评列表页面-->
+            <span class="layui-breadcrumb span-a" lay-separator="-">
+			  <a class="fan" href="#">考评管理</a>
+              <a><cite>考评列表</cite></a>
+			</span>
+            <div class="bgc content-pa">
+                <div class="user">
+                    <div class="user-sapn">
+                        <span class="jilu">找到<span>7</span>条记录</span>
+                    </div>
+                    <hr>
+                    <form class="layui-form" action="">
+                        <div class="layui-form-item select-box">
+                            <label class="layui-form-label">班级：</label>
+                            <div class="layui-input-block">
+                                <select name="banji" lay-verify="required" class="class-type">
+                                    <option value="">--请选择班级类型--</option>
+                                    <option>java</option>
+                                    <option>fed</option>
+                                    <option>fullstack</option>
+                                    <option>uid</option>
+                                    <option>other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-form-item select-box">
+                            <label class="layui-form-label">教员：</label>
+                            <div class="layui-input-block">
+                                <select name="jiaoyuan" lay-verify="required" class="teacher">
+                                    <option value="">--请选择教员--</option>
+                                    <option>java</option>
+                                    <option>fed</option>
+                                    <option>fullstack</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-form-item select-box">
+                            <label class="layui-form-label">考评模板：</label>
+                            <div class="layui-input-block">
+                                <select name="moban" lay-verify="required" class="review-template">
+                                    <option value="">--请选择班级类型--</option>
+                                    <option>java</option>
+                                    <option>fed</option>
+                                    <option>fullstack</option>
+                                    <option>uid</option>
+                                    <option>other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="layui-btn layui-bg-blue newresearch" lay-submit lay-filter="kaoping">增加调查</button>
+                    </form>
+                    <table class="layui-table" lay-skin="line" id="table">
+                        <tbody>
+                        <tr>
+                            <td>序号</td>
+                            <td>班级名</td>
+                            <td>班级类型</td>
+                            <td>调查教员名</td>
+                            <td>参与调查人数</td>
+                            <td>已提交调查人数</td>
+                            <td>调查日期</td>
+                            <td>调查班级IP段</td>
+                            <td>操作</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>FED1707</td>
+                            <td>[alsd]大学生实训班</td>
+                            <td>叶加飞</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>2017-11-22 21：30</td>
+                            <td>192.168.0</td>
+                            <td>
+                                <a class="mingxi " href="#">结束调查</a>
+                                <a class="mingxi" href="#">删除调查</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>FED1707</td>
+                            <td>[alsd]大学生实训班</td>
+                            <td>叶加飞</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>2017-11-22 21：30</td>
+                            <td>192.168.0</td>
+                            <td>
+                                <a class="mingxi" href="#">结束调查</a>
+                                <a class="mingxi" href="#">删除调查</a>
+                            </td>
+                        </tr>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="content-bo">
+                        <div id="demo3"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div></div>
+
+    <!--footer-->
+    <div class="layui-footer" style="color: #888;line-height: 20px;text-align: center">
+        @天创集团（中国）2017版权所有 <br>
+        TianZhi Education Student Feedback Sysytem | 天智教育学院反馈系统 | 2009-2020
+    </div>
+</div>
+<script src="layui/layui/layui.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+
+    //引用表格
+    layui.use('form', function(){
+        var form = layui.form;
+        //监听提交
+        form.on('submit(kaoping)', function(data) {
+            layer.msg(JSON.stringify(data.field),function(){
+                console.log(data)
+            });
+            return false;
+        });
+    });
+    
+    //增加调查点击事件
+    $('.newresearch').click(function () {
+        layui.use('layer',function () {
+
+        })
+    })
+
+
+    //分页
+    layui.use(['laypage', 'layer'], function(){
+        var laypage = layui.laypage,
+            layer = layui.layer;
+
+        //自定义首页、尾页、上一页、下一页文本
+        laypage.render({
+            elem: 'demo3',
+            count:50,
+            first: '首页',
+            last: '尾页',
+            prev: '上一页',
+            next: '下一页'
+        });
+    });
+
+    //查看
+    $('.chakan').click(function () {
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            layer.open({
+                type: 2,
+                title: '',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['50vw', '100vh'],
+                content: 'chakan.html' //iframe的url
+            });
+        });
+    })
+
+
+</script>
+</body>
+</html>
